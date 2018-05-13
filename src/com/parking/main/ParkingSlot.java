@@ -17,7 +17,7 @@ public class ParkingSlot {
 			try {
 				sc = new Scanner(new File(args[0]));
 			} catch (FileNotFoundException e1) {
-				System.out.println("File not found at location path : "+args[0]);
+				System.out.println("File not found at location path : " + args[0]);
 				return;
 			}
 		else
@@ -47,7 +47,9 @@ public class ParkingSlot {
 				}
 				break;
 			case PARK:
-				if (operation.length == 3) {
+				if (parking == null)
+					ParkingImplementation.showErrorMessage();
+				else if (operation.length == 3) {
 					Vehicle v = new Vehicle();
 					v.setRegistrationNumber(operation[1]);
 					v.setColor(operation[2]);
@@ -57,7 +59,9 @@ public class ParkingSlot {
 				}
 				break;
 			case LEAVE:
-				if (operation.length == 2) {
+				if (parking == null)
+					ParkingImplementation.showErrorMessage();
+				else if (operation.length == 2) {
 					try {
 						int index = Integer.parseInt(operation[1]);
 						System.out.println(parking.freeSlot(index - 1));
@@ -69,17 +73,38 @@ public class ParkingSlot {
 				}
 				break;
 			case STATUS:
-				parking.display();
+				if (parking == null)
+					ParkingImplementation.showErrorMessage();
+				else
+					parking.display();
 				break;
-			case REGISTRATION_NUMBER_WITH_COLOR:
+			case REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR:
+				if (parking == null)
+					ParkingImplementation.showErrorMessage();
+				else if (operation.length == 2) {
+					parking.runQuery(CommandEnum.REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR, operation[1]);
+				} else
+					System.out.println(
+							"parameter mismatched for " + CommandEnum.REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR.name);
 				break;
-			case SLOT_NUMBER_FOR_REGISTRATION:
+			case SLOT_NUMBER_FOR_REGISTRATION_NUMBER:
+				if (parking == null)
+					ParkingImplementation.showErrorMessage();
+				else if (operation.length == 2) {
+					parking.runQuery(CommandEnum.SLOT_NUMBER_FOR_REGISTRATION_NUMBER, operation[1]);
+				} else
+					System.out.println(
+							"parameter mismatched for " + CommandEnum.SLOT_NUMBER_FOR_REGISTRATION_NUMBER.name);
 				break;
-			case SLOT_NUMBER_WITH_COLOR:
+			case SLOT_NUMBERS_FOR_CARS_WITH_COLOUR:
+				if (parking == null)
+					ParkingImplementation.showErrorMessage();
+				else if (operation.length == 2) {
+					parking.runQuery(CommandEnum.SLOT_NUMBERS_FOR_CARS_WITH_COLOUR, operation[1]);
+				} else
+					System.out
+							.println("parameter mismatched for " + CommandEnum.SLOT_NUMBERS_FOR_CARS_WITH_COLOUR.name);
 				break;
-			case DEFAULT:
-				break;
-
 			default:
 				break;
 			}

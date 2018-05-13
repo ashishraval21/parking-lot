@@ -6,9 +6,9 @@ public enum CommandEnum {
 	PARK("park"),
 	LEAVE("leave"),
 	STATUS("status"),
-	REGISTRATION_NUMBER_WITH_COLOR("registration_numbers_for_cars_with_colour"),
-	SLOT_NUMBER_WITH_COLOR("slot_numbers_for_cars_with_colour"),
-	SLOT_NUMBER_FOR_REGISTRATION("slot_number_for_registration_number"),
+	REGISTRATION_NUMBERS_FOR_CARS_WITH_COLOUR("registration_numbers_for_cars_with_colour"),
+	SLOT_NUMBERS_FOR_CARS_WITH_COLOUR("slot_numbers_for_cars_with_colour"),
+	SLOT_NUMBER_FOR_REGISTRATION_NUMBER("slot_number_for_registration_number"),
 	DEFAULT("");
 
 	public String name;
