@@ -1,5 +1,6 @@
 package com.parking.impl;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -32,7 +33,6 @@ public class ParkingImplementation {
 			indexArray[i] = i + 1;
 		}
 		indexArray[size - 1] = -1;
-		System.out.println(String.format(Message.CREATED_SLOT_MESSAGE, size));
 	}
 
 	public boolean isFull() {
@@ -91,6 +91,13 @@ public class ParkingImplementation {
 
 	public static void showErrorMessage() {
 		System.out.println(Message.ERROR_MESSAGE);
+	}
+
+	public String iniatilizeMessage() {
+		if (this != null) {
+			return String.format(Message.CREATED_SLOT_MESSAGE, size);
+		}
+		return null;
 	}
 
 	public void runQuery(CommandEnum task, String key) {

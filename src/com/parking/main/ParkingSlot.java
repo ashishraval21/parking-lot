@@ -35,6 +35,8 @@ public class ParkingSlot {
 					try {
 						int size = Integer.parseInt(operation[1]);
 						parking = new ParkingImplementation(size);
+						System.out.println(parking.iniatilizeMessage());
+
 					} catch (NumberFormatException e) {
 						System.out.println("argument cannot be converted into a number : " + operation[1]);
 					}
